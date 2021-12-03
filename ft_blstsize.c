@@ -6,17 +6,17 @@
 /*   By: tnishina <tnishina@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 14:47:09 by tnishina          #+#    #+#             */
-/*   Updated: 2021/09/12 14:59:02 by tnishina         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:52:46 by tnishina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int
+size_t
 	ft_blstsize(t_blist *blst)
 {
 	t_blist	*current;
-	int		size;
+	size_t	size;
 
 	current = blst;
 	size = 0;
