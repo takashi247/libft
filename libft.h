@@ -6,7 +6,7 @@
 /*   By: tnishina <tnishina@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:43:30 by tnishina          #+#    #+#             */
-/*   Updated: 2021/09/12 15:33:22 by tnishina         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:58:22 by tnishina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void			ft_putnbr_fd(int n, int fd);
 
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);
-int				ft_lstsize(t_list *lst);
+size_t			ft_lstsize(t_list *lst);
 t_list			*ft_lstlast(t_list *lst);
 void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
@@ -124,7 +124,7 @@ void			ft_free_str(char **s);
 void			ft_free_str_u(unsigned char **us);
 t_blist			*ft_blstnew(void *content);
 void			ft_blstadd_front(t_blist **blst, t_blist *new);
-int				ft_blstsize(t_blist *blst);
+size_t			ft_blstsize(t_blist *blst);
 void			ft_blstadd_back(t_blist **blst, t_blist *new);
 void			ft_blstdelone(t_blist *blst, void (*del)(void *));
 void			ft_blstclear(t_blist **blst, void (*del)(void *));
