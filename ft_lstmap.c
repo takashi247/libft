@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnishina <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tnishina <tnishina@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:43:28 by tnishina          #+#    #+#             */
-/*   Updated: 2021/09/11 16:43:28 by tnishina         ###   ########.fr       */
+/*   Updated: 2022/06/08 21:20:31 by tnishina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_list
 {
 	t_list	*head;
 	t_list	*new;
+	t_list	*last;
 
 	if (!lst || !(*f) || !(*del))
 		return (NULL);
@@ -24,6 +25,7 @@ t_list
 	if (!new)
 		return (NULL);
 	head = new;
+	last = head;
 	lst = lst->next;
 	while (lst)
 	{
@@ -33,7 +35,8 @@ t_list
 			ft_lstclear(&head, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&head, new);
+		ft_lstadd_back(&last, new);
+		last = last->next;
 		lst = lst->next;
 	}
 	return (head);
