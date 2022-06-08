@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnishina <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tnishina <tnishina@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:43:29 by tnishina          #+#    #+#             */
-/*   Updated: 2021/09/11 16:43:29 by tnishina         ###   ########.fr       */
+/*   Updated: 2022/06/08 20:18:30 by tnishina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@ void
 	if (s && 0 <= fd)
 	{
 		len_s = ft_strlen(s);
-		write(fd, s, len_s);
+		if (len_s <= INT_MAX)
+			write(fd, s, len_s);
+		else
+		{
+			while (INT_MAX < len_s)
+			{
+				write(fd, s, INT_MAX);
+				len_s -= (size_t)INT_MAX;
+				s += INT_MAX;
+			}
+			write(fd, s, len_s);
+		}
 	}
 }
